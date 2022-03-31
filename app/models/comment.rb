@@ -31,4 +31,32 @@ class Comment < ApplicationRecord
   before_validation if: :message_changed? do
     self.message = message.to_s.squish
   end
+
+  around_create do |_, block|
+    commentable.comment = self
+    commentable.run_callbacks(:comment_create, &block)
+  ensure
+    commentable.comment = nil
+  end
+
+  around_destroy do |_, block|
+    commentable.comment = self
+    commentable.run_callbacks(:comment_destroy, &block)
+  ensure
+    commentable.comment = nil
+  end
+
+  after_create_commit do
+    commentable.comment = self
+    commentable.run_callbacks(:comment_create_commit)
+  ensure
+    commentable.comment = nil
+  end
+
+  after_destroy_commit do
+    commentable.comment = self
+    commentable.run_callbacks(:comment_destroy_commit)
+  ensure
+    commentable.comment = nil
+  end
 end
