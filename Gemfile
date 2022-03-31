@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
+gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'bootstrap-email'
 gem 'importmap-rails'
