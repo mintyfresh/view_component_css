@@ -1,0 +1,7 @@
+<h1 class="text-center my-6">
+  <%= @comment.author.display_name %> commented on your profile
+</h1>
+<div class="px-10">
+  <%= render(Email::CommentComponent.new(comment: @comment)) %>
+</div>
+<%= render(Email::FooterComponent.new) %>

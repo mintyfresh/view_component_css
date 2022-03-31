@@ -24,16 +24,15 @@ module EmailTest
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    # Company name and address information.
+    config.x.company.name = 'Social Co.'
+    config.x.company.address_line1 = '1234 Main St.'
+    config.x.company.address_line2 = 'Toronto, ON, M4M 1M1'
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.action_mailer.preview_path = Rails.root.join('spec/mailers/previews')
 
     config.generators do |g|
       g.test_framework :rspec, view_specs: false, request_specs: false

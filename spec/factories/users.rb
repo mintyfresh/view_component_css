@@ -23,5 +23,16 @@ FactoryBot.define do
 
     password { Faker::Internet.password }
     password_confirmation { password }
+
+    trait :with_avatar do
+      transient do
+        avatar_url { Faker::LoremFlickr.image(size: '300x300', search_terms: ['mlp']) }
+      end
+
+      after(:build) do |user, e|
+        file = URI.parse(e.avatar_url).open
+        user.avatar.attach(io: file, filename: 'avatar.jpg')
+      end
+    end
   end
 end

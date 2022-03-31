@@ -26,7 +26,7 @@ FactoryBot.define do
   factory :comment do
     association :author, factory: :user, strategy: :build
     association :commentable, factory: :user, strategy: :build
-    
+
     message { Faker::Lorem.sentence }
   end
 end

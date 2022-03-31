@@ -5,13 +5,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
+gem 'active_storage_validations'
 gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'bootstrap-email'
+gem 'image_processing'
 gem 'importmap-rails'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
-gem 'redis', '~> 4.0'
+gem 'ruby-vips'
 gem 'sassc-rails'
 gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
@@ -37,4 +39,8 @@ end
 
 group :test do
   gem 'rspec-rails'
+end
+
+group :production do
+  gem 'redis', '~> 4.0'
 end

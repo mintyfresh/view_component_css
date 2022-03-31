@@ -1,0 +1,19 @@
+<%= extra_css %>
+<div class="card bg-white">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-3 text-center">
+        <strong><%= @comment.author.display_name%></strong>
+        <%= image_tag(@comment.author.avatar, alt: @comment.author.display_name, class: 'mt-2 w-24 img-fluid img-thumbnail') if @comment.author.avatar.attached? %>
+      </div>
+      <div class="col-9">
+        <div>
+          <%= @comment.message %>
+        </div>
+        <div class="text-right text-muted">
+          <em><%= l(@comment.created_at, format: :long) %></em>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,8 +21,11 @@ class User < ApplicationRecord
 
   has_many :authored_comments, class_name: 'Comment', dependent: :destroy, foreign_key: :author_id, inverse_of: :author
 
+  has_one_attached :avatar
+
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :display_name, presence: true, uniqueness: { case_sensitive: false }
+  validates :avatar, content_type: %i[png jpeg], size: { less_than: 5.megabytes }
 
   has_secure_password
 end
