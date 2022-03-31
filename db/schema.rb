@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_31_193506) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_31_194127) do
+  create_table "comments", force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.string "commentable_type", null: false
+    t.integer "commentable_id", null: false
+    t.text "message", null: false
+    t.integer "likes_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "display_name", null: false
@@ -21,4 +33,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_31_193506) do
     t.index "lower(email)", name: "index_users_on_lower_email", unique: true
   end
 
+  add_foreign_key "comments", "users", column: "author_id"
 end
