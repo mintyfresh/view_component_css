@@ -34,6 +34,8 @@ module EmailTest
 
     config.action_mailer.preview_path = Rails.root.join('spec/mailers/previews')
 
+    config.assets.paths << Rails.root.join('app/components')
+
     config.generators do |g|
       g.test_framework :rspec, view_specs: false, request_specs: false
       g.fixture_replacement :factory_bot

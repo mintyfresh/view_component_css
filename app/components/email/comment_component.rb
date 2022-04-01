@@ -6,9 +6,5 @@ module Email
     def initialize(comment:)
       @comment = comment
     end
-
-    def extra_css
-      @extra_css ||= tag.style(File.read("#{__FILE__.chomp('.rb')}.css"))
-    end
   end
 end
