@@ -1,3 +1,45 @@
+GIT
+  remote: https://github.com/rspec/rspec-core.git
+  revision: 1a1788768ec39a1f252ea756ed9b53cdd21124d5
+  specs:
+    rspec-core (3.12.0.pre)
+      rspec-support (= 3.12.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-expectations.git
+  revision: 0b4ff504a6e1d83daa675627a42ad94ddb74fc85
+  specs:
+    rspec-expectations (3.12.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.12.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-mocks.git
+  revision: 07b6f277b63b05032435b41e0ab740d3828a2cef
+  specs:
+    rspec-mocks (3.12.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.12.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-rails.git
+  revision: 3818055b95a09b7fc88c7e8884f9bc6ace781218
+  specs:
+    rspec-rails (6.0.0.pre)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      rspec-core (= 3.12.0.pre)
+      rspec-expectations (= 3.12.0.pre)
+      rspec-mocks (= 3.12.0.pre)
+      rspec-support (= 3.12.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-support.git
+  revision: 2a1fcfaeb28c074b8ce0e4b2f349d8a81bbaff30
+  specs:
+    rspec-support (3.12.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -197,23 +239,6 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
-    rspec-core (3.11.0)
-      rspec-support (~> 3.11.0)
-    rspec-expectations (3.11.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.11.0)
-    rspec-mocks (3.11.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.11.0)
-    rspec-rails (5.1.1)
-      actionpack (>= 5.2)
-      activesupport (>= 5.2)
-      railties (>= 5.2)
-      rspec-core (~> 3.10)
-      rspec-expectations (~> 3.10)
-      rspec-mocks (~> 3.10)
-      rspec-support (~> 3.10)
-    rspec-support (3.11.0)
     rubocop (1.26.1)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
@@ -295,7 +320,11 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
   redis (~> 4.0)
-  rspec-rails
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
+  rspec-support!
   rubocop
   rubocop-performance
   rubocop-rails

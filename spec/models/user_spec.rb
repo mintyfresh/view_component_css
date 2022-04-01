@@ -54,4 +54,9 @@ RSpec.describe User, type: :model do
     user.password_confirmation = 'not the same password'
     expect(user).to be_invalid
   end
+
+  it 'sets a new-comment email when the user gets a new profile comment' do
+    expect { create(:comment, commentable: user) }.to have_enqueued_mail(UserMailer, :new_comment)
+      .with(user: user, comment: instance_of(Comment))
+  end
 end

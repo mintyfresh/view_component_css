@@ -45,6 +45,8 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  config.active_job.queue_adapter = :test
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
@@ -55,8 +57,8 @@ Rails.application.configure do
   config.active_support.disallowed_deprecation_warnings = []
 
   # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
+  config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.
-  # config.action_view.annotate_rendered_view_with_filenames = true
+  config.action_view.annotate_rendered_view_with_filenames = true
 end

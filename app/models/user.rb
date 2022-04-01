@@ -28,4 +28,8 @@ class User < ApplicationRecord
   validates :avatar, content_type: %i[png jpeg], size: { less_than: 5.megabytes }
 
   has_secure_password
+
+  after_comment_create_commit do
+    UserMailer.new_comment(user: self, comment: comment).deliver_later
+  end
 end
